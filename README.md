@@ -52,25 +52,25 @@ Colcon build tools
 
         mkdir -p ~/nav_systems_ws/src
   
-cd ~/nav_systems_ws/src
+       cd ~/nav_systems_ws/src
 
 2) Clone this repository
 
 3) Build the package
 
-cd ~/nav_systems_ws
+       cd ~/nav_systems_ws
   
-colcon build --packages-select true_north_calculator true_north_interfaces
+       colcon build --packages-select true_north_calculator true_north_interfaces
 
 4) Source the setup files
 
-source ~/nav_systems_ws/install/setup.bash
+       source ~/nav_systems_ws/install/setup.bash
 
 # Running the True North Calculator
 
 To launch the True North Calculator node:
 
-ros2 launch true_north_calculator true_north_system.launch.py
+       ros2 launch true_north_calculator true_north_system.launch.py
 
 
 # Auto-Starting on Boot
@@ -81,9 +81,7 @@ Setup Instructions
 
 Create the startup script:
 
-bash
-
-nano /home/nav_systems_ws/start_true_north.sh 
+       nano /home/nav_systems_ws/start_true_north.sh 
  
 #!/bin/bash
 #Source ROS 2 Galactic and your workspace
@@ -94,21 +92,16 @@ ros2 launch true_north_calculator true_north_system.launch.py
 
 Make the script executable :
 
-bash
 
-chmod +x /home//nav_systems_ws/start_true_north.sh 
+       chmod +x /home//nav_systems_ws/start_true_north.sh 
 
 Switch to root :
 
-bash 
-
-sudo i 
+       sudo i 
 
 Create and enable the systemd service:
 
-bash
-
-sudo nano /etc/systemd/system/true_north.service
+       sudo nano /etc/systemd/system/true_north.service
 
 With the following content ( Please update the following content to better align with your robot's settings and structure) :
 [Unit]
@@ -133,11 +126,9 @@ WantedBy=multi-user.target
 
 Enable and start the service:
 
-bash
-
-sudo systemctl daemon-reload
-sudo systemctl enable true_north.service
-sudo systemctl start true_north.service
+       sudo systemctl daemon-reload
+       sudo systemctl enable true_north.service
+       sudo systemctl start true_north.service
 
 The system utilizes a GX5 IMU and NSS (Navigation Satellite System) to obtain compass readings, latitude, longitude, and altitude data. This configuration ensures that when the robot is aligned to True North, the Casia G can appropriately detect aircraft, birds, and other aerial objects.
 

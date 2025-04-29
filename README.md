@@ -59,7 +59,7 @@ Clone this repository:
 
 bash
 
-git clone https://github.com/yourusername/true_north_calculator.git
+git clone https://github.com/akshaya-bs/true_north_calculator.git
 
 Build the package:
 

@@ -50,7 +50,7 @@ Colcon build tools
 
 1) Create a workspace (if you don't have one already):
 
-mkdir -p ~/nav_systems_ws/src
+        mkdir -p ~/nav_systems_ws/src
   
 cd ~/nav_systems_ws/src
 

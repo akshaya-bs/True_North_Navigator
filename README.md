@@ -14,7 +14,7 @@ Casia G Integration: Optimized for use with the Casia G robotics platform
 
 
 
-#Project Structure
+# Project Structure
 
 ![nav_structure](https://github.com/user-attachments/assets/f3a4a012-a23d-424b-b134-7eab71732c30)
 

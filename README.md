@@ -37,14 +37,17 @@ Manager (true_north_manager.py): Orchestrates the overall operation of the syste
 Custom Service Definition (TrueNorthCalculation.srv): Defines the request/response format for the calculation service.
 
 
-#Installation
+# Installation
+
 Prerequisites
 
 Ubuntu 18.04 or newer
+
 ROS 2 Galactic
+
 Colcon build tools
 
-#Building from Source
+# Building from Source
 
 Create a workspace (if you don't have one already):
 

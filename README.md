@@ -158,7 +158,9 @@ The system utilizes a GX5 IMU and GNSS (Navigation Satellite System) to obtain c
 Common issues and their solutions:
 
 Service not found: Ensure that both packages (true_north_calculator and true_north_interfaces) are properly built and sourced.
+
 WMM.COF not found: Check that the path to the magnetic model coefficient file is correct.
+
 Auto-start service fails: Check the journal logs with journalctl -u true_north.service for detailed error messages.
 
 

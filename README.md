@@ -171,5 +171,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 # Acknowledgments
 
 World Magnetic Model (WMM) data provided by NOAA
+
 ROS 2 Galactic framework
-Casia G platform team for collaboration
+

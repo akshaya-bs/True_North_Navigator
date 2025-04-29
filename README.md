@@ -26,7 +26,7 @@ nav_systems_ws/
     │   │   └── true_north_system.launch.py
     │   ├── resource/
     │   ├── true_north_calculator/
-    │   │   ├── __init__.py
+    │   │   ├── **init**.py
     │   │   ├── core.py
     │   │   ├── magdec.py
     │   │   ├── time_utils.py

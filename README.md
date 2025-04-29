@@ -85,17 +85,17 @@ Create the startup script:
 
 With the following content:
 
-#!/bin/bash
+       #!/bin/bash
 
-#Source ROS 2 Galactic and your workspace
+       #Source ROS 2 Galactic and your workspace
 
-source /opt/ros/galactic/setup.bash
+       source /opt/ros/galactic/setup.bash
 
-source /home/ghost/nav_systems_ws/install/setup.bash
+       source /home/ghost/nav_systems_ws/install/setup.bash
 
-#Launch your system
+       #Launch your system
 
-ros2 launch true_north_calculator true_north_system.launch.py
+       ros2 launch true_north_calculator true_north_system.launch.py
 
 Make the script executable :
 
@@ -112,39 +112,39 @@ Create and enable the systemd service:
 
 With the following content ( Please update the following content to better align with your robot's settings and structure) :
 
-[Unit]
+       [Unit]
 
-Description=Start True North ROS2 System
+       Description=Start True North ROS2 System
 
-After=network.target
+       After=network.target
 
-[Service]
+       [Service]
 
-Type=simple
+       Type=simple
 
-User=ghost
+       User=ghost
 
-WorkingDirectory=/home/nav_systems_ws
+       WorkingDirectory=/home/nav_systems_ws
 
-ExecStart=/home/nav_systems_ws/start_true_north.sh
+       ExecStart=/home/nav_systems_ws/start_true_north.sh
 
-Restart=on-failure
+       Restart=on-failure
 
-Environment=ROS_DOMAIN_ID=123
+       Environment=ROS_DOMAIN_ID=123
 
-Environment=ROS_VERSION=2
+       Environment=ROS_VERSION=2
 
-Environment=ROS_LOCALHOST_ONLY=0
+       Environment=ROS_LOCALHOST_ONLY=0
 
-Environment=ROS_PYTHON_VERSION=3
+       Environment=ROS_PYTHON_VERSION=3
 
-Environment=ROS_PACKAGE_PATH=/home/ghost/current_ros2/share
+       Environment=ROS_PACKAGE_PATH=/home/ghost/current_ros2/share
 
-Environment=ROS_DISTRO=galactic
+       Environment=ROS_DISTRO=galactic
 
-[Install]
+       [Install]
 
-WantedBy=multi-user.target
+       WantedBy=multi-user.target
 
 Enable and start the service:
 
@@ -152,7 +152,7 @@ Enable and start the service:
        sudo systemctl enable true_north.service
        sudo systemctl start true_north.service
 
-The system utilizes a GX5 IMU and NSS (Navigation Satellite System) to obtain compass readings, latitude, longitude, and altitude data. This configuration ensures that when the robot is aligned to True North, the Casia G can appropriately detect aircraft, birds, and other aerial objects.
+The system utilizes a GX5 IMU and NSS (Navigation Satellite System) to obtain compass readings, latitude, longitude, and altitude data. This configuration ensures that when the robot is aligned to True North, the Casia G can appropriately detect aircraft, birds, and other aerial objects. This package was used the GhostRobotics vision60 robot.
 
 # Troubleshooting
 Common issues and their solutions:

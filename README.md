@@ -1,10 +1,10 @@
 # True_North_Navigator
 
-Overview
+3Overview
 True North Calculator is a ROS 2 package that provides real-time True North heading calculations for robotics applications. It is specifically designed to work for the Casia G system, enabling precise orientation and navigation capabilities.
 This package calculates the True North direction by applying the magnetic declination to the magnetic north heading, providing a reliable reference point for autonomous navigation.
 
-Features
+#Features
 
 Real-time True North calculations: Calculate the offset between magnetic and true north based on location and time
 Magnetic Declination Model: Implements the World Magnetic Model (WMM) for accurate declination values
@@ -14,7 +14,7 @@ Casia G Integration: Optimized for use with the Casia G robotics platform
 
 
 
-Project Structure
+#Project Structure
 
 ![nav_structure](https://github.com/user-attachments/assets/f3a4a012-a23d-424b-b134-7eab71732c30)
 
@@ -30,37 +30,41 @@ Controller (true_north_controller.py): Manages the internal state and coordinate
 Manager (true_north_manager.py): Orchestrates the overall operation of the system.
 Custom Service Definition (TrueNorthCalculation.srv): Defines the request/response format for the calculation service.
 
-Installation
+#Installation
 Prerequisites
 
 Ubuntu 18.04 or newer
 ROS 2 Galactic
 Colcon build tools
 
-Building from Source
+#Building from Source
 
 Create a workspace (if you don't have one already):
+
 bash
 mkdir -p ~/nav_systems_ws/src
 cd ~/nav_systems_ws/src
 
 Clone this repository:
+
 bash
 git clone https://github.com/yourusername/true_north_calculator.git
 
 Build the package:
+
 bash
 cd ~/nav_systems_ws
 colcon build --packages-select true_north_calculator true_north_interfaces
 
 Source the setup files:
+
 bash
 source ~/nav_systems_ws/install/setup.bash
 
 
 Usage
 
-Running the True North Calculator
+# Running the True North Calculator
 
 To launch the True North Calculator node:
 
@@ -68,7 +72,7 @@ bash
 ros2 launch true_north_calculator true_north_system.launch.py
 
 
-Auto-Starting on Boot
+# Auto-Starting on Boot
 
 This repository includes scripts to automatically start the True North Calculator when your robot boots. The setup uses systemd to manage the service.
 
@@ -77,14 +81,13 @@ Setup Instructions
 Create the startup script:
 
 bash
-
 nano /home/nav_systems_ws/start_true_north.sh 
  
 #!/bin/bash
-# Source ROS 2 Galactic and your workspace
+#Source ROS 2 Galactic and your workspace
 source /opt/ros/galactic/setup.bash
 source /home/ghost/nav_systems_ws/install/setup.bash
-# Launch your system
+#Launch your system
 ros2 launch true_north_calculator true_north_system.launch.py
 
 Make the script executable :
@@ -94,13 +97,11 @@ chmod +x /home//nav_systems_ws/start_true_north.sh
 Switch to root :
 
 bash 
-
 sudo i 
 
 Create and enable the systemd service:
 
 bash
-
 sudo nano /etc/systemd/system/true_north.service
 
 With the following content ( Please update the following content to better align with your robot's settings and structure) :
@@ -127,14 +128,13 @@ WantedBy=multi-user.target
 Enable and start the service:
 
 bash
-
 sudo systemctl daemon-reload
 sudo systemctl enable true_north.service
 sudo systemctl start true_north.service
 
 The system utilizes a GX5 IMU and NSS (Navigation Satellite System) to obtain compass readings, latitude, longitude, and altitude data. This configuration ensures that when the robot is aligned to True North, the Casia G can appropriately detect aircraft, birds, and other aerial objects.
 
-Troubleshooting
+# Troubleshooting
 Common issues and their solutions:
 
 Service not found: Ensure that both packages (true_north_calculator and true_north_interfaces) are properly built and sourced.
@@ -142,11 +142,11 @@ WMM.COF not found: Check that the path to the magnetic model coefficient file is
 Auto-start service fails: Check the journal logs with journalctl -u true_north.service for detailed error messages.
 
 
-Contributing
+# Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-Acknowledgments
+# Acknowledgments
 
 World Magnetic Model (WMM) data provided by NOAA
 ROS 2 Galactic framework

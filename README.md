@@ -51,23 +51,27 @@ Colcon build tools
 Create a workspace (if you don't have one already):
 
 bash
+
 mkdir -p ~/nav_systems_ws/src
 cd ~/nav_systems_ws/src
 
 Clone this repository:
 
 bash
+
 git clone https://github.com/yourusername/true_north_calculator.git
 
 Build the package:
 
 bash
+
 cd ~/nav_systems_ws
 colcon build --packages-select true_north_calculator true_north_interfaces
 
 Source the setup files:
 
 bash
+
 source ~/nav_systems_ws/install/setup.bash
 
 
@@ -78,6 +82,7 @@ Usage
 To launch the True North Calculator node:
 
 bash
+
 ros2 launch true_north_calculator true_north_system.launch.py
 
 
@@ -90,6 +95,7 @@ Setup Instructions
 Create the startup script:
 
 bash
+
 nano /home/nav_systems_ws/start_true_north.sh 
  
 #!/bin/bash
@@ -101,16 +107,20 @@ ros2 launch true_north_calculator true_north_system.launch.py
 
 Make the script executable :
 
+bash
+
 chmod +x /home//nav_systems_ws/start_true_north.sh 
 
 Switch to root :
 
 bash 
+
 sudo i 
 
 Create and enable the systemd service:
 
 bash
+
 sudo nano /etc/systemd/system/true_north.service
 
 With the following content ( Please update the following content to better align with your robot's settings and structure) :
@@ -137,6 +147,7 @@ WantedBy=multi-user.target
 Enable and start the service:
 
 bash
+
 sudo systemctl daemon-reload
 sudo systemctl enable true_north.service
 sudo systemctl start true_north.service

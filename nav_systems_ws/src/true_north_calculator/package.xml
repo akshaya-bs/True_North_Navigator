@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>true_north_calculator</name>
+  <version>0.0.0</version>
+  <description>Calculates true north based on location and time.</description>
+  <maintainer email="balasubramaniakshaya@gmail.com">rsrch-349</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>       <!-- If you have C++ nodes -->
+  <depend>rclpy</depend>        <!-- If you have Python nodes -->
+  <depend>std_msgs</depend>       <!-- If you use standard message types -->
+  <depend>true_north_interfaces</depend>  <!-- Always needed for custom interfaces -->
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+  <!--<exec_depend>python3</exec_depend>-->  <!-- If you have Python nodes -->
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>  <!-- Or ament_cmake if you have C++ -->
+  </export>
+</package>
+

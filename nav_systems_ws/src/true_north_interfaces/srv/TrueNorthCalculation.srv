@@ -1,0 +1,6 @@
+# No request parameters needed now
+---
+float64 declination
+string declination_direction
+string true_north_direction
+

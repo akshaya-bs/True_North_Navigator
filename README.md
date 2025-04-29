@@ -82,12 +82,19 @@ Setup Instructions
 Create the startup script:
 
        nano /home/nav_systems_ws/start_true_north.sh 
- 
+
+With the following content:
+
 #!/bin/bash
+
 #Source ROS 2 Galactic and your workspace
+
 source /opt/ros/galactic/setup.bash
+
 source /home/ghost/nav_systems_ws/install/setup.bash
+
 #Launch your system
+
 ros2 launch true_north_calculator true_north_system.launch.py
 
 Make the script executable :
@@ -104,24 +111,39 @@ Create and enable the systemd service:
        sudo nano /etc/systemd/system/true_north.service
 
 With the following content ( Please update the following content to better align with your robot's settings and structure) :
+
 [Unit]
+
 Description=Start True North ROS2 System
+
 After=network.target
 
 [Service]
+
 Type=simple
+
 User=ghost
+
 WorkingDirectory=/home/nav_systems_ws
+
 ExecStart=/home/nav_systems_ws/start_true_north.sh
+
 Restart=on-failure
+
 Environment=ROS_DOMAIN_ID=123
+
 Environment=ROS_VERSION=2
+
 Environment=ROS_LOCALHOST_ONLY=0
+
 Environment=ROS_PYTHON_VERSION=3
+
 Environment=ROS_PACKAGE_PATH=/home/ghost/current_ros2/share
+
 Environment=ROS_DISTRO=galactic
 
 [Install]
+
 WantedBy=multi-user.target
 
 Enable and start the service:

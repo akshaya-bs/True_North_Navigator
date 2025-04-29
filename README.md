@@ -46,3 +46,4 @@ nav_systems_ws/
         │   └── TrueNorthCalculation.srv
         ├── CMakeLists.txt
         └── package.xml
+![nav_structure](https://github.com/user-attachments/assets/f3a4a012-a23d-424b-b134-7eab71732c30)

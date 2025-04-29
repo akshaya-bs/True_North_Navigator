@@ -1,10 +1,10 @@
 # True_North_Navigator
 
-3Overview
+# Overview
 True North Calculator is a ROS 2 package that provides real-time True North heading calculations for robotics applications. It is specifically designed to work for the Casia G system, enabling precise orientation and navigation capabilities.
 This package calculates the True North direction by applying the magnetic declination to the magnetic north heading, providing a reliable reference point for autonomous navigation.
 
-#Features
+# Features
 
 Real-time True North calculations: Calculate the offset between magnetic and true north based on location and time
 Magnetic Declination Model: Implements the World Magnetic Model (WMM) for accurate declination values

@@ -22,13 +22,21 @@ Casia G Integration: Optimized for use with the Casia G robotics platform
 
 
 Magnetic Declination Module (magdec.py): Implements the World Magnetic Model (WMM) to calculate magnetic declination based on geographic location and time.
+
 Time Utilities (time_utils.py): Provides functions for time conversion and manipulation needed for accurate magnetic model calculations.
+
 Core Calculation Engine (core.py): Contains the main algorithms for calculating magnetic declination to attain true north.
+
 Service Interface (true_north_service.py): Exposes the calculation functionality as a ROS 2 service.
+
 Client Interface (true_north_client.py): Provides a convenient API for other nodes to request true north calculations.
+
 Controller (true_north_controller.py): Manages the internal state and coordinates the calculation process.
+
 Manager (true_north_manager.py): Orchestrates the overall operation of the system.
+
 Custom Service Definition (TrueNorthCalculation.srv): Defines the request/response format for the calculation service.
+
 
 #Installation
 Prerequisites

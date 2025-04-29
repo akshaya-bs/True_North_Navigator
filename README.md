@@ -16,34 +16,138 @@ Casia G Integration: Optimized for use with the Casia G robotics platform
 
 Project Structure
 
-nav_systems_ws/
-├── build/              # Build files (generated)
-├── install/            # Install files (generated)
-├── log/                # Log files (generated)
-└── src/
-    ├── true_north_calculator/
-    │   ├── launch/
-    │   │   └── true_north_system.launch.py
-    │   ├── resource/
-    │   ├── true_north_calculator/
-    │   │   ├── **init**.py
-    │   │   ├── core.py
-    │   │   ├── magdec.py
-    │   │   ├── time_utils.py
-    │   │   ├── true_north_client.py
-    │   │   ├── true_north_controller.py
-    │   │   ├── true_north_manager.py
-    │   │   ├── true_north_service.py
-    │   │   └── WMM.COF            # World Magnetic Model coefficient file
-    │   ├── CMakeLists.txt
-    │   ├── package.xml
-    │   ├── setup.cfg
-    │   └── setup.py
-    └── true_north_interfaces/
-        ├── include/
-        ├── src/
-        ├── srv/
-        │   └── TrueNorthCalculation.srv
-        ├── CMakeLists.txt
-        └── package.xml
 ![nav_structure](https://github.com/user-attachments/assets/f3a4a012-a23d-424b-b134-7eab71732c30)
+
+How It Works
+
+
+Magnetic Declination Module (magdec.py): Implements the World Magnetic Model (WMM) to calculate magnetic declination based on geographic location and time.
+Time Utilities (time_utils.py): Provides functions for time conversion and manipulation needed for accurate magnetic model calculations.
+Core Calculation Engine (core.py): Contains the main algorithms for calculating magnetic declination to attain true north.
+Service Interface (true_north_service.py): Exposes the calculation functionality as a ROS 2 service.
+Client Interface (true_north_client.py): Provides a convenient API for other nodes to request true north calculations.
+Controller (true_north_controller.py): Manages the internal state and coordinates the calculation process.
+Manager (true_north_manager.py): Orchestrates the overall operation of the system.
+Custom Service Definition (TrueNorthCalculation.srv): Defines the request/response format for the calculation service.
+
+Installation
+Prerequisites
+
+Ubuntu 18.04 or newer
+ROS 2 Galactic
+Colcon build tools
+
+Building from Source
+
+Create a workspace (if you don't have one already):
+bash
+mkdir -p ~/nav_systems_ws/src
+cd ~/nav_systems_ws/src
+
+Clone this repository:
+bash
+git clone https://github.com/yourusername/true_north_calculator.git
+
+Build the package:
+bash
+cd ~/nav_systems_ws
+colcon build --packages-select true_north_calculator true_north_interfaces
+
+Source the setup files:
+bash
+source ~/nav_systems_ws/install/setup.bash
+
+
+Usage
+
+Running the True North Calculator
+
+To launch the True North Calculator node:
+
+bash
+ros2 launch true_north_calculator true_north_system.launch.py
+
+
+Auto-Starting on Boot
+
+This repository includes scripts to automatically start the True North Calculator when your robot boots. The setup uses systemd to manage the service.
+
+Setup Instructions
+
+Create the startup script:
+
+bash
+
+nano /home/nav_systems_ws/start_true_north.sh 
+ 
+#!/bin/bash
+# Source ROS 2 Galactic and your workspace
+source /opt/ros/galactic/setup.bash
+source /home/ghost/nav_systems_ws/install/setup.bash
+# Launch your system
+ros2 launch true_north_calculator true_north_system.launch.py
+
+Make the script executable :
+
+chmod +x /home//nav_systems_ws/start_true_north.sh 
+
+Switch to root :
+
+bash 
+
+sudo i 
+
+Create and enable the systemd service:
+
+bash
+
+sudo nano /etc/systemd/system/true_north.service
+
+With the following content ( Please update the following content to better align with your robot's settings and structure) :
+[Unit]
+Description=Start True North ROS2 System
+After=network.target
+
+[Service]
+Type=simple
+User=ghost
+WorkingDirectory=/home/nav_systems_ws
+ExecStart=/home/nav_systems_ws/start_true_north.sh
+Restart=on-failure
+Environment=ROS_DOMAIN_ID=123
+Environment=ROS_VERSION=2
+Environment=ROS_LOCALHOST_ONLY=0
+Environment=ROS_PYTHON_VERSION=3
+Environment=ROS_PACKAGE_PATH=/home/ghost/current_ros2/share
+Environment=ROS_DISTRO=galactic
+
+[Install]
+WantedBy=multi-user.target
+
+Enable and start the service:
+
+bash
+
+sudo systemctl daemon-reload
+sudo systemctl enable true_north.service
+sudo systemctl start true_north.service
+
+The system utilizes a GX5 IMU and NSS (Navigation Satellite System) to obtain compass readings, latitude, longitude, and altitude data. This configuration ensures that when the robot is aligned to True North, the Casia G can appropriately detect aircraft, birds, and other aerial objects.
+
+Troubleshooting
+Common issues and their solutions:
+
+Service not found: Ensure that both packages (true_north_calculator and true_north_interfaces) are properly built and sourced.
+WMM.COF not found: Check that the path to the magnetic model coefficient file is correct.
+Auto-start service fails: Check the journal logs with journalctl -u true_north.service for detailed error messages.
+
+
+Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+Acknowledgments
+
+World Magnetic Model (WMM) data provided by NOAA
+ROS 2 Galactic framework
+Casia G platform team for collaboration

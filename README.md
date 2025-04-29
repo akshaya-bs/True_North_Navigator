@@ -8,7 +8,7 @@ This package calculates the True North direction by applying the magnetic declin
 
 Real-time True North calculations: Calculate the offset between magnetic and true north based on location and time.
 
-Magnetic Declination Model: Implements the World Magnetic Model (WMM) for accurate declination values.
+Magnetic Declination Model: Implements the World Magnetic Model (WMM) framework for accurate declination values.
 
 ROS 2 Service-based Architecture: Easy integration into existing robotic platforms.
 

@@ -83,7 +83,7 @@ Create the startup script:
 
        nano /home/nav_systems_ws/start_true_north.sh 
 
-With the following content:
+With the following content ( Please update the following content to better align with your robot's settings and structure ) :
 
        #!/bin/bash
 
@@ -110,7 +110,7 @@ Create and enable the systemd service:
 
        sudo nano /etc/systemd/system/true_north.service
 
-With the following content ( Please update the following content to better align with your robot's settings and structure) :
+With the following content ( Please update the following content to better align with your robot's settings and structure ) :
 
        [Unit]
 

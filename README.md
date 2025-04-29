@@ -39,7 +39,6 @@ Custom Service Definition (TrueNorthCalculation.srv): Defines the request/respon
 
 # Installation
 
-Prerequisites
 
 Ubuntu 18.04 or newer
 

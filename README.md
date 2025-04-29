@@ -48,34 +48,21 @@ Colcon build tools
 
 # Building from Source
 
-Create a workspace (if you don't have one already):
-
-bash
+1) Create a workspace (if you don't have one already):
 
 mkdir -p ~/nav_systems_ws/src
 cd ~/nav_systems_ws/src
 
-Clone this repository:
+2) Clone this repository
 
-bash
-
-git clone https://github.com/akshaya-bs/true_north_calculator.git
-
-Build the package:
-
-bash
+3) Build the package
 
 cd ~/nav_systems_ws
 colcon build --packages-select true_north_calculator true_north_interfaces
 
-Source the setup files:
-
-bash
+4) Source the setup files
 
 source ~/nav_systems_ws/install/setup.bash
-
-
-Usage
 
 # Running the True North Calculator
 

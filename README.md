@@ -6,11 +6,15 @@ This package calculates the True North direction by applying the magnetic declin
 
 # Features
 
-Real-time True North calculations: Calculate the offset between magnetic and true north based on location and time
-Magnetic Declination Model: Implements the World Magnetic Model (WMM) for accurate declination values
-ROS 2 Service-based Architecture: Easy integration into existing robotic platforms
-Auto-start Capability: Systemd integration for automatic startup on boot
-Casia G Integration: Optimized for use with the Casia G robotics platform
+Real-time True North calculations: Calculate the offset between magnetic and true north based on location and time.
+
+Magnetic Declination Model: Implements the World Magnetic Model (WMM) for accurate declination values.
+
+ROS 2 Service-based Architecture: Easy integration into existing robotic platforms.
+
+Auto-start Capability: Systemd integration for automatic startup on boot.
+
+Casia G Integration: Optimized for use with the Casia G robotics platform.
 
 
 # How It Works

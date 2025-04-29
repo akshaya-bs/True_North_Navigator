@@ -152,7 +152,7 @@ Enable and start the service:
        sudo systemctl enable true_north.service
        sudo systemctl start true_north.service
 
-The system utilizes a GX5 IMU and GNSS (Navigation Satellite System) to obtain compass readings, latitude, longitude, and altitude data. This configuration ensures that when the robot is aligned to True North, the Casia G can appropriately detect aircraft, birds, and other aerial objects. This package was used the GhostRobotics vision60 robot.
+The system utilizes a GX5 IMU and GNSS (Navigation Satellite System) to obtain compass readings, latitude, longitude, and altitude data. This configuration ensures that when the robot is aligned to True North, the Casia G can appropriately detect aircraft, birds, and other aerial objects. This package was used with the GhostRobotics vision60 robot.
 
 # Troubleshooting
 Common issues and their solutions:

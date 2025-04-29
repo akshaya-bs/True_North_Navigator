@@ -50,25 +50,25 @@ Colcon build tools
 
 1) Create a workspace (if you don't have one already):
 
-mkdir -p ~/nav_systems_ws/src
-cd ~/nav_systems_ws/src
+  mkdir -p ~/nav_systems_ws/src
+  
+  cd ~/nav_systems_ws/src
 
 2) Clone this repository
 
 3) Build the package
 
-cd ~/nav_systems_ws
-colcon build --packages-select true_north_calculator true_north_interfaces
+  cd ~/nav_systems_ws
+  
+  colcon build --packages-select true_north_calculator true_north_interfaces
 
 4) Source the setup files
 
-source ~/nav_systems_ws/install/setup.bash
+  source ~/nav_systems_ws/install/setup.bash
 
 # Running the True North Calculator
 
 To launch the True North Calculator node:
-
-bash
 
 ros2 launch true_north_calculator true_north_system.launch.py
 

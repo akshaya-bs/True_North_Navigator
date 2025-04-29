@@ -18,7 +18,7 @@ Project Structure
 
 ![nav_structure](https://github.com/user-attachments/assets/f3a4a012-a23d-424b-b134-7eab71732c30)
 
-How It Works
+# How It Works
 
 
 Magnetic Declination Module (magdec.py): Implements the World Magnetic Model (WMM) to calculate magnetic declination based on geographic location and time.

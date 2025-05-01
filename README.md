@@ -91,7 +91,7 @@ With the following content ( Please update the following content to better align
 
        source /opt/ros/galactic/setup.bash
 
-       source /home/ghost/nav_systems_ws/install/setup.bash
+       source /home/nav_systems_ws/install/setup.bash
 
        #Launch your system
 
@@ -100,7 +100,7 @@ With the following content ( Please update the following content to better align
 Make the script executable :
 
 
-       chmod +x /home//nav_systems_ws/start_true_north.sh 
+       chmod +x /home/nav_systems_ws/start_true_north.sh 
 
 Switch to root :
 
@@ -122,7 +122,7 @@ With the following content ( Please update the following content to better align
 
        Type=simple
 
-       User=ghost
+       User=user
 
        WorkingDirectory=/home/nav_systems_ws
 
@@ -130,15 +130,15 @@ With the following content ( Please update the following content to better align
 
        Restart=on-failure
 
-       Environment=ROS_DOMAIN_ID=123
+       Environment=ROS_DOMAIN_ID=XXX
 
-       Environment=ROS_VERSION=2
+       Environment=ROS_VERSION=X
 
        Environment=ROS_LOCALHOST_ONLY=0
 
        Environment=ROS_PYTHON_VERSION=3
 
-       Environment=ROS_PACKAGE_PATH=/home/ghost/current_ros2/share
+       Environment=ROS_PACKAGE_PATH=/home/current_ros2/share
 
        Environment=ROS_DISTRO=galactic
 

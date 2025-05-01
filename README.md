@@ -138,7 +138,7 @@ With the following content ( Please update the following content to better align
 
        Environment=ROS_PYTHON_VERSION=3
 
-       Environment=ROS_PACKAGE_PATH=/home/current_ros2/share
+       Environment=ROS_PACKAGE_PATH=________________
 
        Environment=ROS_DISTRO=galactic
 

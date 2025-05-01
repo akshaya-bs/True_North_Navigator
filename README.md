@@ -75,7 +75,7 @@ To launch the True North Calculator node:
 
 # Auto-Starting on Boot
 
-This repository includes scripts to automatically start the True North Calculator when your robot boots. The setup uses systemd to manage the service.
+This repository can be made to automatically start the True North Calculator when your robot boots. The setup uses systemd to manage the service.
 
 Setup Instructions
 

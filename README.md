@@ -106,7 +106,7 @@ Switch to root :
 
        sudo i 
 
-Create and enable the systemd service:
+Create the systemd service:
 
        sudo nano /etc/systemd/system/true_north.service
 
